@@ -16,53 +16,29 @@ class Card:
     def define_order(self):
         '''Define order, 5ok is 7, high card is 1'''
         my_slovar = self.vrni_slovar()
+        j = 0
         if 'J' in my_slovar.keys():
             j = my_slovar.pop('J')
-            if j in [4,5]:
+            if j == 5:
                 return 7
-        else:
-            j = 0
         values = sorted(my_slovar.values(), reverse = True)
+        values[0] += j 
         if values[0] == 5:
             return 7
         elif values[0] == 4:
-            if j == 1:
-                return 7
-            else:
-                return 6
+            return 6
         elif values[0] == 3:
-            if j == 2:
-                return 7
-            elif j == 1:
-                return 6
-            elif values[1] == 2:
+            if values[1] == 2:
                 return 5
             else:
                 return 4
         elif values[0] == 2:
-            if j == 3:
-                return 7
-            elif j == 2:
-                return 6
-            elif values[1] == 2:
-                if j == 1:
-                    return 5
-                else:
-                    return 3
+            if values[1] == 2:
+                return 3
             else:
-                if j == 1:
-                    return 4
-                else:
-                    return 2
-        else:
-            if j == 3:
-                return 6
-            elif j == 2:
-                return 4
-            elif j == 1:
                 return 2
-            else:
-                return 1
+        else:
+            return 1
 
     def vrni_slovar(self):
         '''empty'''
