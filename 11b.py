@@ -33,7 +33,7 @@ for i, (a,b) in enumerate(lojtre):
         my_sum += x_delta + y_delta
         for z in range(min(a,c), max(a,c)):
             if z in vrstice:
-                my_sum += VREDNOST
+                my_sum += VREDNOST 
         for z in range(min(b,d), max(b,d)):
             if z in stolpci:
                 my_sum += VREDNOST
